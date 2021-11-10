@@ -28,3 +28,20 @@ languages.each { |element| puts element }
 s = [["ham", "swiss"], ["turkey", "cheddar"], ["roast beef", "gruyere"]]
 
 s.each { |sub_array| sub_array.each { |element| puts element }}
+
+
+# Sử dụng .eachđể lặp qua wordsmảng.
+# Đối với mỗi từ chúng ta tìm thấy, giả sử rằng bản thân từ đó là một khóa trong
+# frequenciesvà tăng giá trị của nó lên 1.
+# Đây là lý do tại sao mặc định của chúng tôi là 0.
+# Lần đầu tiên chúng ta tìm thấy từ này, nó sẽ có một giá trị mặc định 0mà chúng ta có thể tăng dần lên 1.
+
+
+puts "Enter a phrase you'd like to analyze: "
+text = gets.chomp
+
+words = text.split
+
+frequencies = Hash.new(0)
+
+words.each { |word| frequencies[word] += 1 }

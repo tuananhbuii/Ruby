@@ -42,3 +42,44 @@ lunch_order = {
 lunch_order.each do |name1, name2|
   puts "#{name2}"
 end
+
+# Sử dụng .sort_by để sắp xếp frequencies băm theo số từ, như bước 2 ở trên. Lưu trữ lại kết quả trong frequencies.
+# Dùng .reverse!để đảo ngược frequencies mảng đã sắp xếp .
+puts "Enter a phrase you'd like to analyze: "
+text = gets.chomp
+
+words = text.split
+
+frequencies = Hash.new(0)
+
+words.each { |word| frequencies[word] += 1 }
+
+frequencies = frequencies.sort_by do |word, count|
+  count
+end
+
+frequencies.reverse!
+
+print frequencies
+
+# Lặp lại trên .eachcặp khóa / giá trị trong frequenciesbăm.
+#
+#   Sau đó, putsmỗi từ, một khoảng trắng và tần số của nó đến bảng điều khiển, như trong ví dụ trên.
+puts "Enter a phrase you'd like to analyze: "
+text = gets.chomp
+
+words = text.split
+
+frequencies = Hash.new(0)
+
+words.each { |word| frequencies[word] += 1 }
+
+frequencies = frequencies.sort_by do |word, count|
+  count
+end
+
+frequencies.reverse!
+
+frequencies.each do |word, count|
+puts word + " " + count.to_s
+end
